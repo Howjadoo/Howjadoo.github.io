@@ -27,6 +27,9 @@
       padding-bottom: 5px;
     }
     </style>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
   </head>
   <body>
     
@@ -43,6 +46,25 @@
     <hr />
     <h3>How to drag</h3>
     <img src="drag_bookmarklet.gif" />
+    
+    <hr />
+    
+    <br />
+    <h3>JavaScript Code:</h3>
+    <pre>
+async function getHTML(url){
+  var res = await fetch(url);
+  var text = await res.text();
+  var doc = new DOMParser().parseFromString(text,'text/html');
+  return doc;
+}
+async function reloadContent(){
+  var doc = await getHTML(window.location.href);
+  document.body.innerHTML = doc.body.innerHTML;
+  document.body.style.setProperty('overflow','auto','important')
+}
+reloadContent()
+    </pre>
     
     
   </body>
