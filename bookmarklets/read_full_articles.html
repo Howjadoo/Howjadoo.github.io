@@ -40,7 +40,7 @@
     <li>The next time you are viewing an online news article and the article is partially hidden behind a paywall, click the "Read Full Article" button in your Chrome toolbar to reveal the entire article</li>
     <br />
     <br />
-    <li>
+    <li style="margin-bottom: 25px;">
       <b>Drag me to your Bookmarks Toolbar: </b>
       <a id="bookmarklet-a" class="bookmarklet" href="javascript:(function()%7Basync%20function%20getHTML(url)%7B%0A%20%20var%20res%20%3D%20await%20fetch(url)%3B%0A%20%20var%20text%20%3D%20await%20res.text()%3B%0A%20%20var%20doc%20%3D%20new%20DOMParser().parseFromString(text%2C'text%2Fhtml')%3B%0A%20%20return%20doc%3B%0A%7D%0Aasync%20function%20reloadContent()%7B%0A%20%20var%20doc%20%3D%20await%20getHTML(window.location.href)%3B%0A%20%20document.body.innerHTML%20%3D%20doc.body.innerHTML%3B%0A%20%20document.body.style.setProperty('overflow'%2C'auto'%2C'important')%0A%7D%0AreloadContent()%7D)()%3B">Read Full Article</a>
     </li>
