@@ -116,19 +116,20 @@ function reloadSpellingTest() {
 
     item.addEventListener('keyup', event => {
 
-      if (event.keyCode === 13) {
-        playWord(item.parentElement.querySelector('.theword').textContent)
-      } else {
-        w = item.parentElement.querySelector('.theword').textContent.toLowerCase()
-        if (item.value.toLowerCase() == w) {
-        	var s1 = randomChoice(statementSuccess)
+      w = item.parentElement.querySelector('.theword').textContent.toLowerCase()
+      if (item.value.toLowerCase() == w) { // if the word is now spelled correctly
+        if (event.keyCode != 13) { // only run if the key wasn't the enter key, otherwise ignore; prevents users from pressing enter and interrupting sound
+          var s1 = randomChoice(statementSuccess)
           item.parentElement.querySelector('.thetest').style.background = "#CCFFCC";
           item.parentElement.querySelector('.yougotit').textContent = "✔️ " + s1
           playWord(s1)
-        } else {
-          item.parentElement.querySelector('.thetest').style.background = "#FFF";
-          item.parentElement.querySelector('.yougotit').textContent = ""
         }
+      } else {
+        if (event.keyCode === 13) { //play the word if not yet spelled correctly and enter key is pressed
+          playWord(item.parentElement.querySelector('.theword').textContent)
+        }
+        item.parentElement.querySelector('.thetest').style.background = "#FFF";
+        item.parentElement.querySelector('.yougotit').textContent = ""
       }
     })
   })
