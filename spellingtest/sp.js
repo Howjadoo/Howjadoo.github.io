@@ -12,6 +12,11 @@ onload = function() {
   if ('speechSynthesis' in window) {
     
     voiceSelect = document.querySelector('#voices');
+    
+    // Load last list of words
+    if (localStorage.getItem("lastListOfSpellingWords") != null) {
+      document.getElementById("userListOfWords").value = sessionStorage.getItem("lastListOfSpellingWords")  
+    }    
 
     document.querySelectorAll('#userListOfWords').forEach(item => {
       item.addEventListener('focus', itm => {
@@ -27,6 +32,7 @@ onload = function() {
       item.addEventListener('blur', itm => {
         document.getElementById("instrux1").innerHTML = "Click the black box to enter your list of spelling words"
         item.style.background = "#000";
+        sessionStorage.setItem("lastListOfSpellingWords", document.getElementById("userListOfWords").value);
         reloadSpellingTest()
         return true
       })
