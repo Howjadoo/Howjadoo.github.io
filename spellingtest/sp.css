@@ -1,0 +1,97 @@
+body {
+  font-family: Verdana;
+}
+
+#SpeechSynthesis {
+  border: 1px solid blue;
+  border-radius: 5px;
+  /*width: auto;*/
+  /*float: left;*/
+  display: inline-block;
+  padding: 1%;
+  margin: 0px 0px 5px 5px;
+  text-align: left;
+  font-style: italic;
+  color: #999;
+}
+
+#speechplay {
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 5px;
+  color: blue;
+  text-decoration: none;
+  padding: 3px;
+  margin-top: 5px;
+  border: 1px solid blue;
+}
+
+#speechpause {
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 5px;
+  color: blue;
+  text-decoration: none;
+  padding: 3px;
+  margin-top: 5px;
+  border: 1px solid blue;
+}
+
+#speechstop {
+  cursor: pointer;
+  font-size: 1em;
+  border-radius: 5px;
+  color: red;
+  text-decoration: none;
+  padding: 3px;
+  margin-top: 5px;
+  border: 1px solid red;
+
+}
+
+#voices {
+  font-size: 1em;
+  border-radius: 5px;
+  color: blue;
+  text-decoration: none;
+  padding: 3px;
+  border: 1px solid blue;
+  margin-top: 5px;
+}
+
+#speechwarning {
+  font-size: 0.8em;
+  color: #777777;
+  font-style: italic;
+}
+
+.theword {
+  visibility: hidden;
+  display: none;
+}
+
+.sayword {
+  visibility: hidden;
+  display: none;
+}
+
+#texttospeech {
+  visibility: hidden;
+  display: none;
+}
+
+#texttospeech_saved {
+  visibility: hidden;
+  display: none;
+}
+
+#speechbuttons {
+  display: none;
+}
+
+#userListOfWords {
+  width: 200px;
+  height: 100px;
+  clear:right;
+  background-color: #000;
+}
