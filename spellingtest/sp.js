@@ -116,11 +116,12 @@ function reloadSpellingTest() {
 
     item.addEventListener('input', event => {
       wordChanged(item, event)
-    }
+    })
                           
     item.addEventListener('keyup', event => {
       wordChanged(item, event)
-    }
+    })
+    
      /* w = item.parentElement.querySelector('.theword').textContent.toLowerCase()
       if (item.value.toLowerCase() == w) { // if the word is now spelled correctly
         if (event.keyCode != 13) { // only run if the key wasn't the enter key, otherwise ignore; prevents users from pressing enter and interrupting sound
@@ -135,8 +136,8 @@ function reloadSpellingTest() {
         }
         item.parentElement.querySelector('.thetest').style.background = "#FFF";
         item.parentElement.querySelector('.yougotit').textContent = ""
-      }*/
-    })
+      }
+    })*/
   })
 
 }
