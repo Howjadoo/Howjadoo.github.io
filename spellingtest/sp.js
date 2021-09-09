@@ -10,6 +10,8 @@ var voices = [];
 //https://www.hongkiat.com/blog/text-to-speech/
 onload = function() {
   if ('speechSynthesis' in window) {
+    
+    voiceSelect = document.querySelector('#voices');
 
     document.querySelectorAll('#userListOfWords').forEach(item => {
       item.addEventListener('focus', itm => {
