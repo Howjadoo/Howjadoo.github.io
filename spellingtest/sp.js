@@ -92,7 +92,7 @@ function reloadSpellingTest() {
       console.log(w)
       if (w != '') {
       	rw = tbl.insertRow(-1)
-        rw.insertCell(0).innerHTML = '<span class="sayword">Say Word</span><span class="theword">' + w + '</span><input class="thetest" type="text" length="50" /><span class="yougotit"></span>';
+        rw.insertCell(0).innerHTML = '<span class="sayword">Say Word</span><span class="theword">' + w + '</span><input class="thetest" type="text" length="50" autocomplete="off" autocorrect="off" autocapitalize="off" /><span class="yougotit"></span>';
     	}
     })
   }
