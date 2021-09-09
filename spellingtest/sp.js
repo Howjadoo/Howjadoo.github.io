@@ -16,6 +16,7 @@ onload = function() {
     document.querySelectorAll('#userListOfWords').forEach(item => {
       item.addEventListener('focus', itm => {
         item.style.background = "#FFF";
+        return true
       })
     })
 
@@ -23,6 +24,7 @@ onload = function() {
       item.addEventListener('blur', itm => {
         item.style.background = "#000";
         reloadSpellingTest()
+        return true
       })
     })
 
