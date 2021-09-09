@@ -15,6 +15,7 @@ onload = function() {
 
     document.querySelectorAll('#userListOfWords').forEach(item => {
       item.addEventListener('focus', itm => {
+        document.getElementById("instrux1").innerHTML = "Click outside of this box to start the spelling test"
         item.style.background = "#FFF";
         var tbl = document.querySelector('#spellingtest')
         tbl.innerHTML = "";
@@ -24,6 +25,7 @@ onload = function() {
 
     document.querySelectorAll('#userListOfWords').forEach(item => {
       item.addEventListener('blur', itm => {
+        document.getElementById("instrux1").innerHTML = "Click the black box to enter your list of spelling words"
         item.style.background = "#000";
         reloadSpellingTest()
         return true
