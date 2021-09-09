@@ -14,8 +14,8 @@ onload = function() {
     voiceSelect = document.querySelector('#voices');
     
     // Load last list of words
-    if (sessionStorage.getItem("lastListOfSpellingWords") != null) {
-      document.getElementById("userListOfWords").value = sessionStorage.getItem("lastListOfSpellingWords")  
+    if (localStorage.getItem("lastListOfSpellingWords") != null) {
+      document.getElementById("userListOfWords").value = localStorage.getItem("lastListOfSpellingWords")  
     }    
 
     document.querySelectorAll('#userListOfWords').forEach(item => {
@@ -32,7 +32,7 @@ onload = function() {
       item.addEventListener('blur', itm => {
         document.getElementById("instrux1").innerHTML = "Click the black box to enter your list of spelling words"
         item.style.background = "#000";
-        sessionStorage.setItem("lastListOfSpellingWords", document.getElementById("userListOfWords").value);
+        localStorage.setItem("lastListOfSpellingWords", document.getElementById("userListOfWords").value);
         reloadSpellingTest()
         return true
       })
@@ -163,7 +163,7 @@ function populateVoiceList() {
 
   //get cookie voice
   //var cookievoice = getCookie('SpeechSynthesisVoice');
-  var cookievoice = sessionStorage.getItem("SpeechSynthesisVoice");
+  var cookievoice = localStorage.getItem("SpeechSynthesisVoice");
 
   for (i = 0; i < voices.length; i++) {
     var option = document.createElement('option');
@@ -202,7 +202,7 @@ function onClickPlay() {
       if (voices[i].name === selectedOption) {
         utterance.voice = voices[i];
 
-        sessionStorage.setItem("SpeechSynthesisVoice", selectedOption);
+        localStorage.setItem("SpeechSynthesisVoice", selectedOption);
         break;
       }
     }
