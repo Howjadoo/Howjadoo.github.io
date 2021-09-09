@@ -16,6 +16,8 @@ onload = function() {
     document.querySelectorAll('#userListOfWords').forEach(item => {
       item.addEventListener('focus', itm => {
         item.style.background = "#FFF";
+        var tbl = document.querySelector('#spellingtest')
+        tbl.innerHTML = "";
         return true
       })
     })
