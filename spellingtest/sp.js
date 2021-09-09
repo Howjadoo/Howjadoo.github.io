@@ -14,7 +14,7 @@ onload = function() {
     voiceSelect = document.querySelector('#voices');
     
     // Load last list of words
-    if (localStorage.getItem("lastListOfSpellingWords") != null) {
+    if (sessionStorage.getItem("lastListOfSpellingWords") != null) {
       document.getElementById("userListOfWords").value = sessionStorage.getItem("lastListOfSpellingWords")  
     }    
 
