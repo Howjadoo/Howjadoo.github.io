@@ -115,8 +115,13 @@ function reloadSpellingTest() {
     })
 
     item.addEventListener('input', event => {
-
-      w = item.parentElement.querySelector('.theword').textContent.toLowerCase()
+      call wordChanged(item, event)
+    }
+                          
+    item.addEventListener('keyup', event => {
+      call wordChanged(item, event)
+    }
+     /* w = item.parentElement.querySelector('.theword').textContent.toLowerCase()
       if (item.value.toLowerCase() == w) { // if the word is now spelled correctly
         if (event.keyCode != 13) { // only run if the key wasn't the enter key, otherwise ignore; prevents users from pressing enter and interrupting sound
           var s1 = randomChoice(statementSuccess)
@@ -130,7 +135,7 @@ function reloadSpellingTest() {
         }
         item.parentElement.querySelector('.thetest').style.background = "#FFF";
         item.parentElement.querySelector('.yougotit').textContent = ""
-      }
+      }*/
     })
   })
 
@@ -249,6 +254,24 @@ function onClickStop() {
     /* for safari */
     flag = false;
     synth.cancel();
+  }
+}
+
+function wordChanged(item, event) {
+  w = item.parentElement.querySelector('.theword').textContent.toLowerCase()
+  if (item.value.toLowerCase() == w) { // if the word is now spelled correctly
+    if (event.keyCode != 13) { // only run if the key wasn't the enter key, otherwise ignore; prevents users from pressing enter and interrupting sound
+      var s1 = randomChoice(statementSuccess)
+      item.parentElement.querySelector('.thetest').style.background = "#CCFFCC";
+      item.parentElement.querySelector('.yougotit').textContent = "✔️ " + s1
+      playWord(s1)
+    }
+  } else {
+    if (event.keyCode === 13) { //play the word if not yet spelled correctly and enter key is pressed
+      playWord(item.parentElement.querySelector('.theword').textContent)
+    }
+    item.parentElement.querySelector('.thetest').style.background = "#FFF";
+    item.parentElement.querySelector('.yougotit').textContent = ""
   }
 }
 
