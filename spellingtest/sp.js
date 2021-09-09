@@ -114,7 +114,7 @@ function reloadSpellingTest() {
       playWord(item.parentElement.querySelector('.theword').textContent)
     })
 
-    item.addEventListener('keyup', event => {
+    item.addEventListener('input', event => {
 
       w = item.parentElement.querySelector('.theword').textContent.toLowerCase()
       if (item.value.toLowerCase() == w) { // if the word is now spelled correctly
