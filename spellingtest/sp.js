@@ -7,11 +7,17 @@ var flag = false;
 var voiceSelect = document.querySelector('#voices');
 var voices = [];
 
+var wordlist_cookie_name = 'howjadoo_spellingtest_wordlist_json'
+var word_lists = []
+
 //https://www.hongkiat.com/blog/text-to-speech/
 onload = function() {
   if ('speechSynthesis' in window) {
     
-    voiceSelect = document.querySelector('#voices');
+      voiceSelect = document.querySelector('#voices');
+
+      load_wordlists_from_cookies(); // If user has custom lists, load them.  Otherwise load the default list.
+      console.log(JSON.stringify(word_lists))
     
     // Load last list of words
     if (localStorage.getItem("lastListOfSpellingWords") != null) {
@@ -77,6 +83,27 @@ function shuffle(array) {
   }
 
   return array;
+}
+
+function load_wordlists_from_cookies() {
+    //if (localStorage.getItem(wordlist_cookie_name) != null) {
+    //    word_lists = JSON.parse(localStorage.getItem(wordlist_cookie_name))
+    //} else {
+        // load from pre-populated list via jquery
+        word_lists = json_file_to_array('defaultwordlist.json', word_lists)
+        array_to_json_cookie(word_lists, wordlist_cookie_name)
+    //}
+}
+
+function array_to_json_cookie(a, c) {
+    localStorage.setItem(c, JSON.stringify(a))
+    return true
+}
+
+function json_file_to_array(url, a) {
+    jQuery.get(url, function (data) {
+        a = data
+    });
 }
 
 function reloadSpellingTest() {
